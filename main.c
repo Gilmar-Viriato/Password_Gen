@@ -6,22 +6,22 @@
 
 
 main(){
-    int i; 
+     
     srand(time(NULL));
-    printf("\n");
     char senha[PW_LEN]; 
 
-    for(i = 0; i < PW_LEN; i++)
+    for(int i = 0; i < PW_LEN; i++)
     {
-        char letra = rand()%('Z' - 'A' + 1) + 'A';
-        printf("%c", letra);
-        senha[i] = letra;
+        senha[i] = rand()%('z' - 'a' + 1) + 'a';
+        if(rand()%2 != 0){
+            senha[i] += 'A' - 'a'; 
+        }
     }
-
+    
     printf("\n");
 
-    for(i = 0; i < PW_LEN; i++){
-    printf("%c", senha[i]);
+    for(int i = 0; i < PW_LEN; i++){
+        printf("%c", senha[i]);
     }
 
     return 0;
