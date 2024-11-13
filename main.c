@@ -5,12 +5,21 @@
 #define PW_LEN (10)
 
 
-main(){
+int main(){
      
     srand(time(NULL));
-    char senha[PW_LEN]; 
+    int len;
 
-    for(int i = 0; i < PW_LEN; i++)
+
+    do
+    {
+        printf("Qual tamanho da senha que o senhor quer gerar:\n");
+        scanf("%d", &len);
+    } while (len <= 0);
+    
+    char senha[len]; 
+
+    for(int i = 0; i < len; i++)
     {
         senha[i] = rand()%('z' - 'a' + 1) + 'a';
         if(rand()%2 != 0){
@@ -20,7 +29,7 @@ main(){
     
     printf("\n");
 
-    for(int i = 0; i < PW_LEN; i++){
+    for(int i = 0; i < len; i++){
         printf("%c", senha[i]);
     }
 
